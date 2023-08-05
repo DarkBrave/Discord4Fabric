@@ -176,24 +176,24 @@ public class Discord {
         }
     }
 
-    public void sendEmbedMessageUsingPlayerAvatar(ServerPlayerEntity sender, Color color, String message, String description) {
-        EmbedBuilder embedBuilder = new EmbedBuilder()
-                .setAuthor(message, null, Utils.getAvatarUrl(sender))
-                .setDescription(description)
-                .setColor(color);
+    //public void sendEmbedMessageUsingPlayerAvatar(ServerPlayerEntity sender, Color color, String message, String description) {
+    //    EmbedBuilder embedBuilder = new EmbedBuilder()
+    //            .setAuthor(message, null, Utils.getAvatarUrl(sender))
+    //            .setDescription(description)
+    //            .setColor(color);
 
-        sendEmbedMessage(embedBuilder);
-    }
+    //    sendEmbedMessage(embedBuilder);
+    //}
 
-    public void sendEmbedMessage(EmbedBuilder embedBuilder) {
-        try {
-            getTextChannel()
-                    .sendMessage(MessageCreateData.fromEmbeds(embedBuilder.build()))
-                    .queue();
-        } catch (Exception e) {
-            Utils.logException(e);
-        }
-    }
+    //public void sendEmbedMessage(EmbedBuilder embedBuilder) {
+    //    try {
+    //        getTextChannel()
+    //                .sendMessage(MessageCreateData.fromEmbeds(embedBuilder.build()))
+    //                .queue();
+    //    } catch (Exception e) {
+    //        Utils.logException(e);
+    //    }
+    //}
 
     public void sendPlainMessage(String message) {
         try {

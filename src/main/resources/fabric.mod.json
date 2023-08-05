@@ -2,10 +2,11 @@
   "schemaVersion": 1,
   "id": "d4f",
   "version": "${version}",
-  "name": "Discord4Fabric",
-  "description": "A beautiful Discord bot client for Fabric",
+  "name": "Discord4Fabric (No Embeds)",
+  "description": "A beautiful Discord bot client for Fabric, with embeds removed.",
   "authors": [
-    "Reimnop"
+    "Reimnop",
+    "DarkBrave"
   ],
   "contact": {
     "website": "reimnop.me"

@@ -52,21 +52,21 @@ public final class MinecraftEventListeners {
             assert advancement.getDisplay() != null;
 
             String titleStr = config.advancementTaskTitle;
-            String descStr = config.advancementTaskDescription;
-            switch (advancement.getDisplay().getFrame()) {
-                case GOAL -> {
-                    titleStr = config.advancementGoalTitle;
-                    descStr = config.advancementGoalDescription;
-                }
-                case TASK -> {
-                    titleStr = config.advancementTaskTitle;
-                    descStr = config.advancementTaskDescription;
-                }
-                case CHALLENGE -> {
-                    titleStr = config.advancementChallengeTitle;
-                    descStr = config.advancementChallengeDescription;
-                }
-            }
+            //String descStr = config.advancementTaskDescription;
+            //switch (advancement.getDisplay().getFrame()) {
+            //    case GOAL -> {
+            //        titleStr = config.advancementGoalTitle;
+            //        descStr = config.advancementGoalDescription;
+            //    }
+            //    case TASK -> {
+            //        titleStr = config.advancementTaskTitle;
+            //        descStr = config.advancementTaskDescription;
+            //    }
+            //    case CHALLENGE -> {
+            //        titleStr = config.advancementChallengeTitle;
+            //        descStr = config.advancementChallengeDescription;
+            //    }
+            //}
 
             Map<Identifier, PlaceholderHandler> placeholders = Map.of(
                     Discord4Fabric.id("title"), (ctx, arg) -> PlaceholderResult.value(advancement.getDisplay().getTitle()),
@@ -80,14 +80,15 @@ public final class MinecraftEventListeners {
                     placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
             );
 
-            Text desc = Placeholders.parseText(
-                    TextParserUtils.formatText(descStr),
-                    PlaceholderContext.of(playerEntity),
-                    Placeholders.PLACEHOLDER_PATTERN,
-                    placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
-            );
+            //Text desc = Placeholders.parseText(
+            //        TextParserUtils.formatText(descStr),
+            //        PlaceholderContext.of(playerEntity),
+            //        Placeholders.PLACEHOLDER_PATTERN,
+            //        placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
+            //);
 
-            discord.sendEmbedMessageUsingPlayerAvatar(playerEntity, Color.yellow, title.getString(), desc.getString());
+            //discord.sendEmbedMessageUsingPlayerAvatar(playerEntity, Color.yellow, title.getString(), desc.getString());
+            discord.sendPlainMessage(title.getString());
         });
 
         VariableTimer<MinecraftServer> statusTimer = new VariableTimer<>(
@@ -374,14 +375,15 @@ public final class MinecraftEventListeners {
                     placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
             );
 
-            Text desc = Placeholders.parseText(
-                    TextParserUtils.formatText(config.playerJoinDescription),
-                    PlaceholderContext.of(player),
-                    Placeholders.PLACEHOLDER_PATTERN,
-                    placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
-            );
+            //Text desc = Placeholders.parseText(
+            //        TextParserUtils.formatText(config.playerJoinDescription),
+            //        PlaceholderContext.of(player),
+            //        Placeholders.PLACEHOLDER_PATTERN,
+            //        placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
+            //);
 
-            discord.sendEmbedMessageUsingPlayerAvatar(player, Color.green, msg.getString(), desc.getString());
+            //discord.sendEmbedMessageUsingPlayerAvatar(player, Color.green, msg.getString(), desc.getString());
+            discord.sendPlainMessage(msg.getString());
         });
 
         PlayerDisconnectedCallback.EVENT.register((player, server, fromVanish) -> {
@@ -406,14 +408,15 @@ public final class MinecraftEventListeners {
                     placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
             );
 
-            Text desc = Placeholders.parseText(
-                    TextParserUtils.formatText(config.playerLeftDescription),
-                    PlaceholderContext.of(player),
-                    Placeholders.PLACEHOLDER_PATTERN,
-                    placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
-            );
+            //Text desc = Placeholders.parseText(
+            //        TextParserUtils.formatText(config.playerLeftDescription),
+            //        PlaceholderContext.of(player),
+            //        Placeholders.PLACEHOLDER_PATTERN,
+            //        placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
+            //);
 
-            discord.sendEmbedMessageUsingPlayerAvatar(player, Color.red, msg.getString(), desc.getString());
+            //discord.sendEmbedMessageUsingPlayerAvatar(player, Color.red, msg.getString(), desc.getString());
+            discord.sendPlainMessage(msg.getString());
         });
 
         PlayerDeathCallback.EVENT.register(((playerEntity, source, deathMessage) -> {
@@ -432,14 +435,15 @@ public final class MinecraftEventListeners {
                     placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
             );
 
-            Text desc = Placeholders.parseText(
-                    TextParserUtils.formatText(config.deathDescription),
-                    PlaceholderContext.of(playerEntity),
-                    Placeholders.PLACEHOLDER_PATTERN,
-                    placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
-            );
+            //Text desc = Placeholders.parseText(
+            //        TextParserUtils.formatText(config.deathDescription),
+            //        PlaceholderContext.of(playerEntity),
+            //        Placeholders.PLACEHOLDER_PATTERN,
+            //        placeholder -> Utils.getPlaceholderHandler(placeholder, placeholders)
+            //);
 
-            discord.sendEmbedMessageUsingPlayerAvatar(playerEntity, Color.black, msg.getString(), desc.getString());
+            //discord.sendEmbedMessageUsingPlayerAvatar(playerEntity, Color.black, msg.getString(), desc.getString());
+            discord.sendPlainMessage(msg.getString());
         }));
     }
 }
